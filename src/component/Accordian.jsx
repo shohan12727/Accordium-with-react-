@@ -2,14 +2,14 @@
 
 import React, { useState } from 'react';
 import data from './data';
+import './style.css';
 
 const Accordian = () => {
 
     const [selected, setSelected] = useState(null);
 
     function handleSingleSelection(getCurrentId) {
-        setSelected(getCurrentId);
-
+        setSelected(getCurrentId === selected ? null : getCurrentId);
     }
 
     return (
@@ -25,27 +25,19 @@ const Accordian = () => {
                                 </div>
                                 {
                                     selected === dataItem.id ?
-                                    <div>
-                                        {dataItem.answer}
-                                    </div>
-                                    :null
+                                        <div className='content'>
+                                            {dataItem.answer}
+                                        </div>
+                                        : null
                                 }
 
                             </div>
                         </div>
 
                         )
-
-
                         : <div> No data found </div>
                 }
-
-
             </div>
-
-
-
-
         </div>
     );
 };

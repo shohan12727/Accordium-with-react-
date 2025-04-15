@@ -8,7 +8,7 @@ const Accordian = () => {
     const [selected, setSelected] = useState(null);
 
     function handleSingleSelection(getCurrentId) {
-        console.log(getCurrentId);
+        setSelected(getCurrentId);
 
     }
 
@@ -23,6 +23,14 @@ const Accordian = () => {
                                     <h3>{dataItem.question}</h3>
                                     <span>+</span>
                                 </div>
+                                {
+                                    selected === dataItem.id ?
+                                    <div>
+                                        {dataItem.answer}
+                                    </div>
+                                    :null
+                                }
+
                             </div>
                         </div>
 
